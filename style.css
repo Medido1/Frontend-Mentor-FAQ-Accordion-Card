@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+  /* ## Colors */
+
+  /* ### Primary */
+
+  /* #### Text */
+  --Very_dark_desaturated_blue: hsl(238, 29%, 16%);
+  --Soft_red: hsl(14, 88%, 65%);
+
+  /* #### Gradient */
+  --Soft_violet: hsl(273, 75%, 66%);
+  --Soft_blue: hsl(240, 73%, 65%);
+
+  /* ### Neutral */
+
+  /* #### Text */
+  --neutral-very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --neutral-dark-grayish-blue: hsl(240, 6%, 50%);
+
+  /* #### Dividers */
+  --neutral-light-grayish-blue: hsl(240, 5%, 91%);
+
+  /* ## Typography */
+
+  /* ### Body Copy */
+
+  --font_size : .75rem;
+
+  /* ### Font */
+  --font-family: 'Kumbh Sans', sans-serif;
+  --regular_font_weight : 400;
+  --bold_font_weight : 700;
+}
+
+/* css reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* styling */
+
+.main {
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--Soft_violet), var(--Soft_blue));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container {
+  font-family: var(--font-family);
+  font-size: var(--font_size);
+  font-weight: var(--regular_font_weight);
+  color: var(--Very_dark_desaturated_blue);
+  background-color: white;
+  border-radius: .75rem;
+  padding: 7rem 1.25rem 1.25rem 1.25rem;
+  position: relative;
+  box-shadow: 2px 10px 20px rgba(0, 0, 0, .25);
+  height: 500px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.main_heading {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.question_container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question_container p:hover{
+  color: var(--Soft_red);
+}
+
+.question_answer_container {
+  border-bottom: 1px solid var(--neutral-light-grayish-blue);
+  margin-bottom: 1rem;
+  padding-bottom: .75rem;
+}
+
+input[type="radio"], .answer{
+  display: none;
+}
+
+input[type="radio"]:checked + label p:first-child{
+  font-weight: var(--bold_font_weight);
+}
+
+input[type="radio"]:checked + label .arrow_icon{
+  transform: rotate(180deg);
+}
+
+input[type="radio"]:checked + label .answer{
+  display: block;
+  margin-top: .75rem;
+}
+
+.container::before{
+  content: "";
+  position: absolute;
+  background: url(./images/illustration-woman-online-mobile.svg) no-repeat;
+  width: 290px;
+  height: 180px;
+  top: -7%;
+  left: 50%;
+  transform: translate(-40%, -40%);
+}
+
+.container::after{
+  content: "";
+  position: absolute;
+  background: url(./images/bg-pattern-mobile.svg) no-repeat;
+  width: 290px;
+  height: 180px;
+  top: 0;
+  left: 50%;
+  transform: translate(-40%);
+}
+
+@media (min-width : 800px){
+  .container{
+    display: flex;
+    justify-content: flex-end;
+    background: 
+    url(./images/illustration-woman-online-desktop.svg) bottom 5rem left -4.5rem no-repeat,
+    url(./images/bg-pattern-desktop.svg) bottom -8rem left -35rem no-repeat;
+    background-color: white;
+    padding: 4rem;
+  }
+  .main_heading{
+    text-align: left;
+  }
+  .questions{
+    width: 50%;
+  }
+  .container::before{
+    background: url(./images/illustration-box-desktop.svg) no-repeat;
+    top: 50%;
+    left: 2%;
+  }
+  .container::after{
+    display: none;
+  }
+}
